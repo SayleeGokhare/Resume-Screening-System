@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="flex justify-center items-center h-[80vh]">
+    <div class="glass p-8 rounded-lg shadow-lg w-full max-w-md">
+        <h2 class="text-3xl font-bold mb-6 text-center text-white">Upload Resume</h2>
+        <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="mb-6">
+                <label class="block text-gray-200 text-sm font-bold mb-2" for="file">
+                    Upload PDF or DOCX
+                </label>
+                <input
+                    class="block w-full text-sm text-gray-900 border border-gray-600 rounded-lg cursor-pointer bg-gray-50 focus:outline-none"
+                    id="file" type="file" name="file" accept=".pdf,.docx">
+                <p class="mt-1 text-sm text-gray-400" id="file_input_help">PDF or DOCX (MAX. 5MB).</p>
+            </div>
+            <button
+                class="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline transition duration-300 transform hover:scale-105"
+                type="submit">
+                Upload & Analyze
+            </button>
+        </form>
+    </div>
+</div>
+{% endblock %}
